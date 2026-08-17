@@ -22,6 +22,10 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+function formatMessage(str) {
+  return escapeHtml(str).replace(/\*([^*\n]+?)\*/g, "<strong>$1</strong>");
+}
+
 const isConfigured =
   typeof firebaseConfig !== "undefined" &&
   firebaseConfig.apiKey &&
@@ -69,7 +73,7 @@ if (!isConfigured) {
           '<span class="recado-name">' + escapeHtml(data.nome || "anônimo") + "</span>" +
           '<span class="recado-date">' + escapeHtml(dateStr) + "</span>" +
           "</div>" +
-          '<p class="recado-message">' + escapeHtml(data.mensagem || "") + "</p>";
+          '<p class="recado-message">' + formatMessage(data.mensagem || "") + "</p>";
         listEl.appendChild(card);
       });
     },
@@ -96,7 +100,7 @@ if (!isConfigured) {
     try {
       await addDoc(recadosRef, {
         nome: nome.slice(0, 40),
-        mensagem: mensagem.slice(0, 500),
+        mensagem: mensagem.slice(0, 2000),
         criadoEm: serverTimestamp(),
       });
       form.reset();
