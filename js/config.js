@@ -27,12 +27,12 @@ const babyConfig = {
   photos: {
     hero: "images/hero.jpg",
     gallery: [
-      "images/foto1.jpg",
-      "images/foto2.jpg",
-      "images/foto3.jpg",
-      "images/foto4.jpg",
-      "images/foto5.jpg",
-      "images/foto6.jpg",
+      "images/foto1.jpeg",
+      "images/foto2.jpeg",
+      "images/foto3.jpeg",
+      "images/foto4.jpeg",
+      "images/foto5.jpeg",
+      "images/foto6.jpeg",
     ],
   },
 };
@@ -66,10 +66,12 @@ const albumsConfig = [];
 // página de recados fica com o formulário desativado e avisa que ainda
 // não está configurada.
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY_AQUI",
-  authDomain: "SEU_PROJETO.firebaseapp.com",
-  projectId: "SEU_PROJETO",
-  storageBucket: "SEU_PROJETO.appspot.com",
-  messagingSenderId: "SEU_SENDER_ID",
-  appId: "SEU_APP_ID",
+  apiKey: "AIzaSyC-U4ZsvNtpAZknFbQYGcldwcn8Byj0MM4",
+  authDomain: "lizsite-8409a.firebaseapp.com",
+  projectId: "lizsite-8409a",
+  storageBucket: "lizsite-8409a.firebasestorage.app",
+  messagingSenderId: "603402832293",
+  appId: "1:603402832293:web:163b550a1dc0d0fabc804c",
+  measurementId: "G-WWFKSTRXYL"
 };
+
