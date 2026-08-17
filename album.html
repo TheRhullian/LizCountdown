@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Álbum · Liz 🌸</title>
+<meta name="description" content="Álbum de fotos da Liz.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="petals" aria-hidden="true" id="petals"></div>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Liz <span aria-hidden="true">🌸</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">início</a>
+    <a href="albuns.html" class="nav-link active">álbuns</a>
+    <a href="recados.html" class="nav-link">recados</a>
+  </div>
+</nav>
+
+<div id="album-app">
+  <header class="page-header">
+    <a href="albuns.html" class="back-link">← todos os álbuns</a>
+    <h1 id="album-title">álbum</h1>
+    <p id="album-date"></p>
+  </header>
+
+  <main>
+    <div class="photo-grid" id="photo-grid">
+      <!-- preenchido via JS a partir de js/config.js -->
+    </div>
+  </main>
+</div>
+
+<div class="lightbox hidden" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="fechar">✕</button>
+  <button class="lightbox-prev" id="lightbox-prev" aria-label="foto anterior">‹</button>
+  <img id="lightbox-img" src="" alt="Foto ampliada">
+  <button class="lightbox-next" id="lightbox-next" aria-label="próxima foto">›</button>
+</div>
+
+<footer class="site-footer">
+  <svg viewBox="0 0 200 60" class="footer-flower" aria-hidden="true"><use href="#flower-branch-small"/></svg>
+  <p>feito com carinho para a Liz 🌸</p>
+</footer>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="flower-branch-small">
+      <path d="M10,45 C50,35 90,15 190,10" fill="none" stroke="currentColor" stroke-width="1.6" opacity="0.5"/>
+      <g class="fl" transform="translate(45,32) scale(0.8)"><circle r="7" class="petal" cx="-6" cy="0"/><circle r="7" class="petal" cx="6" cy="0"/><circle r="7" class="petal" cx="0" cy="-6"/><circle r="7" class="petal" cx="0" cy="6"/><circle r="4" class="center"/></g>
+      <g class="fl" transform="translate(110,18) scale(0.7)"><circle r="7" class="petal" cx="-6" cy="0"/><circle r="7" class="petal" cx="6" cy="0"/><circle r="7" class="petal" cx="0" cy="-6"/><circle r="7" class="petal" cx="0" cy="6"/><circle r="4" class="center"/></g>
+      <g class="fl" transform="translate(165,10) scale(0.6)"><circle r="7" class="petal" cx="-6" cy="0"/><circle r="7" class="petal" cx="6" cy="0"/><circle r="7" class="petal" cx="0" cy="-6"/><circle r="7" class="petal" cx="0" cy="6"/><circle r="4" class="center"/></g>
+    </g>
+
+    <g id="heart-flower">
+      <g class="fl" transform="translate(60,60) scale(1.6)"><circle r="7" class="petal" cx="-6" cy="0"/><circle r="7" class="petal" cx="6" cy="0"/><circle r="7" class="petal" cx="0" cy="-6"/><circle r="7" class="petal" cx="0" cy="6"/><circle r="4" class="center"/></g>
+    </g>
+  </defs>
+</svg>
+
+<script src="js/config.js"></script>
+<script src="js/petals.js"></script>
+<script src="js/albums.js"></script>
+</body>
+</html>

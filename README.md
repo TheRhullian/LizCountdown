@@ -28,13 +28,61 @@ Veja [`images/README.md`](images/README.md) — é só salvar o arquivo com o no
 ## Estrutura
 
 ```
-index.html        estrutura da página
-css/style.css      estilo (paleta rosa e dourado, florais)
-js/config.js        dados editáveis (nome, data, pais, fotos)
-js/main.js           contagem regressiva + carregamento das fotos
-images/              fotos da Liz
+index.html          página inicial (contagem regressiva)
+albuns.html          grade com todos os álbuns
+album.html            fotos de um álbum + lightbox
+recados.html          mural de recados
+css/style.css        estilo (paleta rosa e dourado, florais)
+js/config.js          dados editáveis (nome, data, pais, fotos, álbuns, Firebase)
+js/main.js             contagem regressiva + fotos da página inicial
+js/albums.js            grade de álbuns + lightbox
+js/recados.js            mural de recados (Firebase)
+js/petals.js             animação das pétalas (todas as páginas)
+images/                fotos da Liz
+images/albuns/          álbuns de fotos
 ```
 
 ## Fase 2
 
-Espaço reservado para os próximos recursos combinados.
+### Álbuns de fotos
+
+Página `albuns.html` com vários álbuns, cada um com sua própria página (`album.html`) e lightbox (clique numa foto para ampliar, use as setas do teclado para navegar). Veja [`images/albuns/README.md`](images/albuns/README.md) para o passo a passo de como criar um álbum novo — é só criar uma pasta, salvar fotos numeradas e adicionar um bloco em `js/config.js`.
+
+### Recados (mural de mensagens)
+
+GitHub Pages é hospedagem estática — sozinho, ele não guarda os recados que as pessoas escreverem. A página `recados.html` usa o **Firebase Firestore** (gratuito) como banco de dados: quando alguém envia um recado, ele aparece na hora para todo mundo que estiver com a página aberta.
+
+Enquanto o Firebase não estiver configurado, a página mostra um aviso e o formulário fica desativado — nada quebra.
+
+**Passo a passo para ativar:**
+
+1. Acesse [console.firebase.google.com](https://console.firebase.google.com) e crie um projeto gratuito (plano *Spark*).
+2. Dentro do projeto, clique no ícone **`</>`** ("Web") para registrar um app da Web. Dê um nome qualquer e finalize — não precisa do Firebase Hosting.
+3. Copie o objeto `firebaseConfig` mostrado na tela (chaves `apiKey`, `authDomain`, `projectId`, etc.) e cole em **`js/config.js`**, substituindo os valores de exemplo (`SUA_API_KEY_AQUI`...).
+4. No menu lateral do console, vá em **Build → Firestore Database → Criar banco de dados**. Escolha uma região e inicie em **modo de produção**.
+5. Ainda no Firestore, vá na aba **Regras** e substitua o conteúdo por:
+
+   ```
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /recados/{recadoId} {
+         allow read: if true;
+         allow create: if request.resource.data.keys().hasOnly(['nome', 'mensagem', 'criadoEm'])
+           && request.resource.data.nome is string
+           && request.resource.data.nome.size() > 0
+           && request.resource.data.nome.size() <= 40
+           && request.resource.data.mensagem is string
+           && request.resource.data.mensagem.size() > 0
+           && request.resource.data.mensagem.size() <= 500
+           && request.resource.data.criadoEm == request.time;
+         allow update, delete: if false;
+       }
+     }
+   }
+   ```
+
+   Isso permite que qualquer visitante **leia e crie** recados (com nome até 40 caracteres e mensagem até 500), mas **ninguém** — nem pelo site — pode editar ou apagar um recado já enviado. Isso é proposital: assim ninguém consegue apagar o carinho de outra pessoa. Se algum recado precisar ser removido (spam, por exemplo), isso é feito por você direto no console do Firebase (Firestore Database → coleção `recados`).
+6. Salve as regras e publique. Depois de atualizar `js/config.js` com as chaves reais e enviar (`git push`), a página de recados já funciona.
+
+Nenhuma dessas chaves é secreta — é normal (e esperado) que a `apiKey` do Firebase apareça no código do site; quem protege os dados são as regras do passo 5, não o segredo da chave.
