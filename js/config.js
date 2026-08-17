@@ -43,27 +43,6 @@ const babyConfig = {
 
 
 // ---------------------------------------------------------------------
-// Álbuns de fotos (página álbuns.html / album.html)
-// ---------------------------------------------------------------------
-// Para criar um álbum novo:
-// 1. Crie uma pasta em images/albuns/<id>/ (o <id> não pode ter espaços/acentos).
-// 2. Salve a foto de capa como capa.jpg dentro dessa pasta.
-// 3. Salve as demais fotos numeradas: 1.jpg, 2.jpg, 3.jpg... (na ordem que
-//    quiser que apareçam). Não precisa preencher todos os números do
-//    "maxPhotos" — o que não existir simplesmente não aparece.
-// 4. Adicione um bloco abaixo com o mesmo <id> da pasta.
-//
-// Exemplo (copie e ajuste):
-// {
-//   id: "ensaio-gestante",
-//   title: "Ensaio Gestante",
-//   date: "2026-07-10",
-//   cover: "images/albuns/ensaio-gestante/capa.jpg",
-//   maxPhotos: 30,
-// },
-const albumsConfig = [];
-
-// ---------------------------------------------------------------------
 // Recados (página recados.html) — mural de mensagens em tempo real.
 // ---------------------------------------------------------------------
 // Veja o passo a passo no README.md ("Fase 2 · Recados") para criar um

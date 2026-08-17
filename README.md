@@ -29,24 +29,16 @@ Veja [`images/README.md`](images/README.md) — é só salvar o arquivo com o no
 
 ```
 index.html          página inicial (contagem regressiva)
-albuns.html          grade com todos os álbuns
-album.html            fotos de um álbum + lightbox
 recados.html          mural de recados
 css/style.css        estilo (paleta rosa e dourado, florais)
-js/config.js          dados editáveis (nome, data, pais, fotos, álbuns, Firebase)
+js/config.js          dados editáveis (nome, data, pais, fotos, Firebase)
 js/main.js             contagem regressiva + fotos da página inicial
-js/albums.js            grade de álbuns + lightbox
 js/recados.js            mural de recados (Firebase)
 js/petals.js             animação das pétalas (todas as páginas)
 images/                fotos da Liz
-images/albuns/          álbuns de fotos
 ```
 
 ## Fase 2
-
-### Álbuns de fotos
-
-Página `albuns.html` com vários álbuns, cada um com sua própria página (`album.html`) e lightbox (clique numa foto para ampliar, use as setas do teclado para navegar). Veja [`images/albuns/README.md`](images/albuns/README.md) para o passo a passo de como criar um álbum novo — é só criar uma pasta, salvar fotos numeradas e adicionar um bloco em `js/config.js`.
 
 ### Recados (mural de mensagens)
 
