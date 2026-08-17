@@ -25,7 +25,7 @@ const babyConfig = {
   // abaixo e ela aparece automaticamente no site (nenhuma foto colocada
   // ainda? sem problema, o site mostra um espaço decorativo no lugar).
   photos: {
-    hero: "images/hero.jpg",
+    hero: "images/hero.jpeg",
     gallery: [
       "images/foto1.jpeg",
       "images/foto2.jpeg",
@@ -33,6 +33,10 @@ const babyConfig = {
       "images/foto4.jpeg",
       "images/foto5.jpeg",
       "images/foto6.jpeg",
+      "images/foto7.jpeg",
+      "images/foto8.jpeg",
+      "images/foto9.jpeg",
+      "images/foto10.jpeg",
     ],
   },
 };
