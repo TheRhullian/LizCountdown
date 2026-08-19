@@ -9,7 +9,7 @@ const babyConfig = {
 
   // Data/hora prevista (ou real) do nascimento.
   // Formato: "AAAA-MM-DDTHH:MM:SS" (horário local)
-  birthDate: "2026-08-27T00:00:00",
+  birthDate: "2026-08-27T10:30:00",
 
   // Pais
   father: "Rhullian Damião",
